@@ -1,0 +1,65 @@
+@bg-color: #bde478;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: bold 20px "Courier";
+}
+#main {
+  width: 360px;
+  height: 420px;
+  background: @bg-color;
+  margin: 100px auto;
+  border: 10px solid ;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  #stage {
+    width: 304px;
+    height: 304px;
+    border: 2px solid;
+    //蛇的移动
+    position: relative;
+    #snake {
+      //snake下的div元素
+      &>div {
+        width: 10px;
+        height: 10px;
+        background: #000;
+        //让div与div之间有一些边框的方法，设置border，border的颜色与背景色一致，而不是设置margin
+        border: 1px solid @bg-color;
+        //蛇的位置是会改变的，所以开始绝对定位
+        position: absolute;
+      }
+    }
+    &>#food {
+      position: absolute;
+      left: 40px;
+      top: 40px;
+      width: 10px;
+      height: 10px;
+      background: @bg-color;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      &>div{
+        width: 4px;
+        height: 4px;
+        background: black;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  #score-panel {
+    width: 300px;
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
